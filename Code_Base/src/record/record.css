@@ -1,0 +1,15 @@
+/* data folder link (home) and the rail warning */
+.rec{display:flex;flex-direction:column;gap:.4rem;max-width:420px;padding:.7rem .9rem;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.015)}
+.rec-src{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
+.rec-src .chip{margin-left:auto}
+.rec-src > .micro{flex:1;min-width:12rem}
+.rec .micro{text-transform:none;letter-spacing:.04em}
+.rec-err{color:var(--warn)}
+.rec-note{font-size:var(--t-fine)}
+.rec .dot,.rec-rail .dot{width:7px;height:7px;border-radius:50%;background:var(--fg3);flex:none;display:inline-block}
+.rec .dot.ready{background:var(--ok);box-shadow:0 0 0 3px rgba(126,154,107,.18)}
+.rec .dot.reconnect,.rec-rail .dot.reconnect{background:var(--warn)}
+.rec-rail{display:inline-flex;align-items:center;gap:.45rem;color:var(--warn)}
+@media (max-width:900px){.rec{max-width:none}}
+@media (max-width:600px){.rec-rail{font-size:0;gap:0}.rec-rail .dot{width:9px;height:9px}}
+@media print{.rec,.rec-rail{display:none!important}}

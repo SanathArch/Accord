@@ -1,0 +1,8 @@
+.mark{display:flex;align-items:flex-start;gap:.25rem;flex-wrap:wrap;line-height:1}
+.mark-word{font-size:var(--t-mark);font-weight:700;letter-spacing:-.04em;color:var(--fg)}
+.mark-sup{font-family:var(--mono);font-size:var(--t-fine);letter-spacing:.08em;color:var(--accent);transform:translateY(2px)}
+.mark-sub{flex-basis:100%;font-family:var(--mono);font-size:var(--t-fine);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--fg3);line-height:1.7;margin-top:.35rem}
+.credits{list-style:none;display:flex;gap:1.4rem;flex-wrap:wrap}
+.credit b{display:block;font-size:var(--t-credit);font-weight:400;color:var(--fg2)}
+.credit span{font-family:var(--mono);font-size:var(--t-fine);letter-spacing:.16em;text-transform:uppercase;color:var(--fg3)}

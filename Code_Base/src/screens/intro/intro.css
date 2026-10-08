@@ -1,0 +1,12 @@
+/* 02 · The process. Centred column, as in the reference (styles.css: .phase.center, .col, .body, .row). */
+.phase.center{display:flex;align-items:safe center;justify-content:center;padding:clamp(1.25rem,4vw,3.5rem)}
+.col{width:100%;max-width:620px;display:flex;flex-direction:column;gap:1rem;animation:rise var(--t-rise) ease both}
+.col.wide{max-width:1000px}
+.body{display:flex;flex-direction:column;gap:.85rem}
+.body strong{color:var(--fg);font-weight:500}
+.row{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin-top:.6rem}
+.row .btn,.row .btn-ghost{align-self:flex-start}
+
+/* buyer TV: same layout, wider column for the larger type */
+[data-view="buyer"] .col{max-width:1240px;gap:1.6rem}
+[data-view="buyer"] .body{line-height:1.5}
