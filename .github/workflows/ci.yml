@@ -1,6 +1,6 @@
 # Accord · CI
 # Installs, type-checks and builds Code_Base on every push / PR to main,
-# then attaches the built dist/ (single-file index.html + assets) to the run.
+# then attaches the built dist/ to the run and publishes it to GitHub Pages.
 name: CI
 
 on:
@@ -51,3 +51,28 @@ jobs:
             Code_Base/dist
             !Code_Base/dist/**/desktop.ini
           retention-days: 14
+
+      - name: Prepare Pages bundle
+        if: github.event_name != 'pull_request'
+        run: find dist -name desktop.ini -delete
+
+      - name: Upload Pages bundle
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: Code_Base/dist
+
+  deploy:
+    # Publishes dist/ to GitHub Pages: https://sanatharch.github.io/Accord/
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
